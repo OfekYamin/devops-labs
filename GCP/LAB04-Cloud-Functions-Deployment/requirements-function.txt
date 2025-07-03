@@ -1,0 +1,3 @@
+# Cloud Function requirements
+# These are the packages that will be installed in the Cloud Function environment
+flask>=2.0.0 

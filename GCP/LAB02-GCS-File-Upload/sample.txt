@@ -1,0 +1,13 @@
+This is a sample file to upload to Google Cloud Storage (GCS).
+
+This file is part of LAB02-GCS-File-Upload in the GCP Python automation labs.
+
+Cloud storage is a fundamental service in any cloud platform, allowing you to:
+- Store and retrieve any amount of data at any time
+- Share data globally
+- Host static website content
+- Store backups and archives
+- Serve as storage for data analytics
+
+Learning to interact with cloud storage programmatically is an essential 
+skill for any DevOps engineer or cloud developer. 
