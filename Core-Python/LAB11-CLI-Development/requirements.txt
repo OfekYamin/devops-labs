@@ -1,0 +1,8 @@
+# LAB11 - CLI Tool Development
+# Required dependencies
+
+# Colored terminal output
+colorama>=0.4.4
+
+# System information
+psutil>=5.9.0 

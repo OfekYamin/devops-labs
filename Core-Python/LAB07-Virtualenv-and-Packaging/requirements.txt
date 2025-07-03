@@ -1,0 +1,14 @@
+# LAB07 - Virtual Environments and Python Packaging
+# Requirements File
+#
+# This file will list the dependencies for this project.
+# Initially, it will be empty except for these comments.
+# 
+# After installing packages with pip, you can generate this file with:
+# pip freeze > requirements.txt
+#
+# You can also manually add dependencies and versions:
+# requests==2.28.1
+#
+# To install dependencies from this file, run:
+# pip install -r requirements.txt 

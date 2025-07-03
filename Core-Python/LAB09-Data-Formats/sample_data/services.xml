@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service>
+        <id>svc-001</id>
+        <name>Web Frontend</name>
+        <type>web</type>
+        <status>running</status>
+        <endpoints>
+            <endpoint>
+                <protocol>http</protocol>
+                <host>web.example.com</host>
+                <port>80</port>
+                <path>/</path>
+            </endpoint>
+            <endpoint>
+                <protocol>https</protocol>
+                <host>web.example.com</host>
+                <port>443</port>
+                <path>/</path>
+            </endpoint>
+        </endpoints>
+        <dependencies>
+            <dependency>svc-002</dependency>
+            <dependency>svc-003</dependency>
+        </dependencies>
+        <metadata>
+            <deployment_date>2023-05-15T10:00:00Z</deployment_date>
+            <version>1.2.3</version>
+            <owner>frontend-team</owner>
+        </metadata>
+    </service>
+    
+    <service>
+        <id>svc-002</id>
+        <name>API Gateway</name>
+        <type>api</type>
+        <status>running</status>
+        <endpoints>
+            <endpoint>
+                <protocol>https</protocol>
+                <host>api.example.com</host>
+                <port>443</port>
+                <path>/api/v1</path>
+            </endpoint>
+        </endpoints>
+        <dependencies>
+            <dependency>svc-004</dependency>
+            <dependency>svc-005</dependency>
+        </dependencies>
+        <metadata>
+            <deployment_date>2023-05-10T14:30:00Z</deployment_date>
+            <version>2.1.0</version>
+            <owner>api-team</owner>
+        </metadata>
+    </service>
+    
+    <service>
+        <id>svc-003</id>
+        <name>Authentication Service</name>
+        <type>auth</type>
+        <status>running</status>
+        <endpoints>
+            <endpoint>
+                <protocol>https</protocol>
+                <host>auth.internal.example.com</host>
+                <port>8443</port>
+                <path>/auth</path>
+            </endpoint>
+        </endpoints>
+        <dependencies>
+            <dependency>svc-006</dependency>
+        </dependencies>
+        <metadata>
+            <deployment_date>2023-04-28T09:15:00Z</deployment_date>
+            <version>1.5.2</version>
+            <owner>security-team</owner>
+        </metadata>
+    </service>
+    
+    <service>
+        <id>svc-004</id>
+        <name>User Service</name>
+        <type>microservice</type>
+        <status>running</status>
+        <endpoints>
+            <endpoint>
+                <protocol>http</protocol>
+                <host>users.internal.example.com</host>
+                <port>8080</port>
+                <path>/users</path>
+            </endpoint>
+        </endpoints>
+        <dependencies>
+            <dependency>svc-006</dependency>
+        </dependencies>
+        <metadata>
+            <deployment_date>2023-05-05T11:45:00Z</deployment_date>
+            <version>3.0.1</version>
+            <owner>backend-team</owner>
+        </metadata>
+    </service>
+    
+    <service>
+        <id>svc-005</id>
+        <name>Product Service</name>
+        <type>microservice</type>
+        <status>running</status>
+        <endpoints>
+            <endpoint>
+                <protocol>http</protocol>
+                <host>products.internal.example.com</host>
+                <port>8080</port>
+                <path>/products</path>
+            </endpoint>
+        </endpoints>
+        <dependencies>
+            <dependency>svc-006</dependency>
+        </dependencies>
+        <metadata>
+            <deployment_date>2023-05-07T16:20:00Z</deployment_date>
+            <version>2.4.3</version>
+            <owner>backend-team</owner>
+        </metadata>
+    </service>
+    
+    <service>
+        <id>svc-006</id>
+        <name>Database Service</name>
+        <type>database</type>
+        <status>running</status>
+        <endpoints>
+            <endpoint>
+                <protocol>postgresql</protocol>
+                <host>db.internal.example.com</host>
+                <port>5432</port>
+                <path>/</path>
+            </endpoint>
+        </endpoints>
+        <dependencies>
+        </dependencies>
+        <metadata>
+            <deployment_date>2023-04-15T08:00:00Z</deployment_date>
+            <version>13.4</version>
+            <owner>dba-team</owner>
+        </metadata>
+    </service>
+</services> 

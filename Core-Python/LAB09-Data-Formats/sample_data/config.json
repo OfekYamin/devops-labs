@@ -1,0 +1,35 @@
+{
+    "application": "DevOps Automation Tool",
+    "version": "1.0.0",
+    "environment": "development",
+    "database": {
+        "host": "db.example.com",
+        "port": 5432,
+        "name": "devops_db",
+        "user": "db_user",
+        "ssl": true
+    },
+    "services": [
+        {
+            "name": "web-service",
+            "host": "web.example.com",
+            "port": 8080,
+            "health_check": "/health"
+        },
+        {
+            "name": "api-service",
+            "host": "api.example.com",
+            "port": 8081,
+            "health_check": "/api/health"
+        }
+    ],
+    "logging": {
+        "level": "INFO",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "output": [
+            "console",
+            "file"
+        ],
+        "file_path": "/var/log/app.log"
+    }
+}

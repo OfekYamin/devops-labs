@@ -1,0 +1,11 @@
+# LAB09 - Working with Data Formats
+# Required dependencies
+
+# YAML parsing and generation
+pyyaml>=6.0
+
+# XML to dictionary conversion
+xmltodict>=0.13.0
+
+# JSON schema validation
+jsonschema>=4.17.0 

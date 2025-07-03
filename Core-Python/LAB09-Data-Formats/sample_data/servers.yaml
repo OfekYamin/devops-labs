@@ -1,0 +1,111 @@
+---
+# DevOps Infrastructure Configuration
+infrastructure:
+  region: eu-west-1
+  environment: staging
+  vpc:
+    id: vpc-12345
+    cidr: 10.0.0.0/16
+    subnets:
+      - name: public-subnet-1
+        cidr: 10.0.1.0/24
+        az: eu-west-1a
+        public: true
+      - name: public-subnet-2
+        cidr: 10.0.2.0/24
+        az: eu-west-1b
+        public: true
+      - name: private-subnet-1
+        cidr: 10.0.3.0/24
+        az: eu-west-1a
+        public: false
+      - name: private-subnet-2
+        cidr: 10.0.4.0/24
+        az: eu-west-1b
+        public: false
+
+servers:
+  - name: web-server-1
+    type: t3.medium
+    ami: ami-0a1234567890
+    subnet: public-subnet-1
+    security_groups:
+      - web-sg
+    tags:
+      Role: WebServer
+      Environment: Staging
+    user_data: |
+      #!/bin/bash
+      apt-get update
+      apt-get install -y nginx
+      systemctl enable nginx
+      systemctl start nginx
+
+  - name: app-server-1
+    type: t3.large
+    ami: ami-0b1234567890
+    subnet: private-subnet-1
+    security_groups:
+      - app-sg
+    tags:
+      Role: AppServer
+      Environment: Staging
+    volumes:
+      - device: /dev/sdf
+        size: 100
+        type: gp3
+
+  - name: db-server-1
+    type: t3.xlarge
+    ami: ami-0c1234567890
+    subnet: private-subnet-2
+    security_groups:
+      - db-sg
+    tags:
+      Role: DBServer
+      Environment: Staging
+    volumes:
+      - device: /dev/sdf
+        size: 500
+        type: io2
+        iops: 5000
+
+security_groups:
+  - name: web-sg
+    description: Web Server Security Group
+    rules:
+      - protocol: tcp
+        port: 80
+        source: 0.0.0.0/0
+      - protocol: tcp
+        port: 443
+        source: 0.0.0.0/0
+      - protocol: tcp
+        port: 22
+        source: 10.0.0.0/16
+
+  - name: app-sg
+    description: Application Server Security Group
+    rules:
+      - protocol: tcp
+        port: 8080
+        source: 10.0.1.0/24
+      - protocol: tcp
+        port: 8080
+        source: 10.0.2.0/24
+      - protocol: tcp
+        port: 22
+        source: 10.0.0.0/16
+
+  - name: db-sg
+    description: Database Server Security Group
+    rules:
+      - protocol: tcp
+        port: 5432
+        source: 10.0.3.0/24
+      - protocol: tcp
+        port: 5432
+        source: 10.0.4.0/24
+      - protocol: tcp
+        port: 22
+        source: 10.0.0.0/16 

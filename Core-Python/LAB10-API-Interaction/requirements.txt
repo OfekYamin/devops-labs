@@ -1,0 +1,5 @@
+# LAB10 - API Interaction and REST
+# Required dependencies
+
+# HTTP requests library
+requests>=2.28.0 

@@ -1,0 +1,8 @@
+# LAB12 - Async Programming
+# Required dependencies
+
+# Async HTTP client
+aiohttp>=3.8.0
+
+# Rich terminal output (optional but useful for progress display)
+rich>=12.0.0 

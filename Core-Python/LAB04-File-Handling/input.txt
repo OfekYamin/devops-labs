@@ -1,0 +1,13 @@
+Welcome to the File Handling Lab!
+This file contains multiple lines of text that you can read using Python.
+
+In DevOps automation, reading files is essential for:
+- Processing log files
+- Reading configuration data
+- Analyzing system outputs
+- Parsing command results
+
+You can read this entire file at once with file.read(),
+or line by line with a for loop.
+
+Try both approaches to see which works better for different scenarios! 

@@ -1,0 +1,24 @@
+{
+    "api_base_url": "https://jsonplaceholder.typicode.com",
+    "timeout": 30,
+    "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    "auth": {
+        "type": "none",
+        "api_key": "",
+        "username": "",
+        "password": ""
+    },
+    "endpoints": {
+        "users": "/users",
+        "posts": "/posts",
+        "comments": "/comments",
+        "todos": "/todos"
+    },
+    "retry": {
+        "max_retries": 3,
+        "backoff_factor": 0.5
+    }
+}
