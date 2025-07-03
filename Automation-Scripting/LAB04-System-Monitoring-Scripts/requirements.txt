@@ -1,0 +1,9 @@
+# LAB04 - System Monitoring Scripts
+# Required dependencies
+
+# System information and metrics
+psutil>=5.9.0
+
+# Optional: For advanced visualizations
+# matplotlib>=3.5.0
+# terminaltables>=3.1.0 

@@ -1,0 +1,8 @@
+# LAB02 - Automate File Downloads
+# Required dependencies
+
+# HTTP requests library
+requests>=2.28.1
+
+# Optional: Progress bar library (for bonus challenge)
+# tqdm>=4.64.1 
