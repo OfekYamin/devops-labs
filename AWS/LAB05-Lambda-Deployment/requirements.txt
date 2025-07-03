@@ -1,0 +1,11 @@
+# AWS LAB05 - Lambda Deployment
+# Required dependencies
+
+# AWS SDK for Python
+boto3>=1.26.0
+
+# Optional: For retrying AWS API calls
+# botocore>=1.29.0  # Included with boto3, but specifying version explicitly
+
+# Optional: For command line arguments
+# argparse>=1.4.0  # For parsing command line options 

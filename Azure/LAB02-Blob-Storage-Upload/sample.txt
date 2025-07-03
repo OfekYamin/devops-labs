@@ -1,0 +1,19 @@
+This is a sample file for testing Azure Blob Storage uploads.
+
+Azure Blob Storage is Microsoft's object storage solution for the cloud.
+It's optimized for storing massive amounts of unstructured data such as:
+- Text files
+- Images
+- Videos
+- Log files
+- Backups
+- Other data types
+
+In this lab, you'll learn how to:
+1. Connect to Azure Blob Storage using Python
+2. Create containers to organize your data
+3. Upload files to the storage
+4. List and manage your stored objects
+5. Clean up resources properly
+
+Happy cloud storage automation! 

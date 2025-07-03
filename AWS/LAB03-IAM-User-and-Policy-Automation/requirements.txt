@@ -1,0 +1,11 @@
+# AWS LAB03 - IAM User and Policy Automation
+# Required dependencies
+
+# AWS SDK for Python
+boto3>=1.26.0
+
+# Optional: For retrying AWS API calls
+# botocore>=1.29.0  # Included with boto3, but specifying version explicitly
+
+# Optional: For improved policy handling
+# policyuniverse>=1.5.0  # For analyzing and simplifying IAM policies 

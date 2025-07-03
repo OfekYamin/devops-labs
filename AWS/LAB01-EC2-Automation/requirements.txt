@@ -1,0 +1,11 @@
+# AWS LAB01 - EC2 Instance Launch Automation
+# Required dependencies
+
+# AWS SDK for Python
+boto3>=1.26.0
+
+# Optional: For retrying AWS API calls
+# botocore>=1.29.0  # Included with boto3, but specifying version explicitly
+
+# Optional: For improved CLI experience
+# colorama>=0.4.6  # For colored terminal output 

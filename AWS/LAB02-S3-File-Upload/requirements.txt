@@ -1,0 +1,11 @@
+# AWS LAB02 - S3 File Upload Automation
+# Required dependencies
+
+# AWS SDK for Python
+boto3>=1.26.0
+
+# Optional: For retrying AWS API calls
+# botocore>=1.29.0  # Included with boto3, but specifying version explicitly
+
+# Optional: For improved CLI experience
+# tqdm>=4.64.1  # For progress bars during file uploads 

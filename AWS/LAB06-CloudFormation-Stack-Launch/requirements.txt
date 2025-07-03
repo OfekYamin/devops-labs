@@ -1,0 +1,11 @@
+# AWS LAB06 - CloudFormation Stack Launch
+# Required dependencies for Python CloudFormation automation
+
+# AWS SDK for Python
+boto3>=1.26.0
+
+# Configuration parsing
+configparser>=5.0.0
+
+# For specific boto3 functionality
+botocore>=1.29.0 

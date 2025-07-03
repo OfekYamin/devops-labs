@@ -1,0 +1,103 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'CloudFormation template to deploy an EC2 instance with security group'
+
+Parameters:
+  InstanceType:
+    Description: EC2 instance type
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+    ConstraintDescription: Must be a valid EC2 instance type.
+
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access
+    Type: AWS::EC2::KeyPair::KeyName
+    ConstraintDescription: Must be the name of an existing EC2 KeyPair.
+
+  SubnetID:
+    Description: The subnet ID where the EC2 instance will be launched
+    Type: AWS::EC2::Subnet::Id
+
+  VpcID:
+    Description: The VPC ID where resources will be created
+    Type: AWS::EC2::VPC::Id
+
+  SSHLocation:
+    Description: IP address range that can SSH to the EC2 instance
+    Type: String
+    Default: 0.0.0.0/0
+    AllowedPattern: '(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})'
+    ConstraintDescription: Must be a valid CIDR range in the format x.x.x.x/x.
+
+Resources:
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access via port 22
+      VpcId: !Ref VpcID
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-SecurityGroup
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      SecurityGroupIds:
+        - !Ref InstanceSecurityGroup
+      SubnetId: !Ref SubnetID
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-Instance
+
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-0261755bbcb8c4a84  # Amazon Linux 2023 AMI (x86)
+    us-east-2:
+      AMI: ami-0430580de6244e02e
+    us-west-1:
+      AMI: ami-078a6be28a184a7e7
+    us-west-2:
+      AMI: ami-0c65adc9a5c1b5d7c
+    eu-west-1:
+      AMI: ami-0fe0b2cf0e1f25c8a  # Amazon Linux 2023 AMI in Ireland region
+    eu-central-1:
+      AMI: ami-0f93281c4c7199094
+    ap-southeast-1:
+      AMI: ami-078c1149d8ad719a7
+    ap-southeast-2:
+      AMI: ami-0310483fb2b488153
+    ap-northeast-1:
+      AMI: ami-06ee4e2261a4dc5c3
+
+Outputs:
+  InstanceId:
+    Description: ID of the EC2 instance
+    Value: !Ref EC2Instance
+
+  PublicIP:
+    Description: Public IP address of the EC2 instance
+    Value: !GetAtt EC2Instance.PublicIp
+
+  PublicDNS:
+    Description: Public DNS name of the EC2 instance
+    Value: !GetAtt EC2Instance.PublicDnsName
+    
+  SecurityGroup:
+    Description: Security Group ID for the instance
+    Value: !Ref InstanceSecurityGroup 

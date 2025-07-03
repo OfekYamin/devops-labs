@@ -1,0 +1,12 @@
+# AWS LAB04 - CloudWatch Metrics and Alerts
+# Required dependencies
+
+# AWS SDK for Python
+boto3>=1.26.0
+
+# Optional: For retrying AWS API calls
+# botocore>=1.29.0  # Included with boto3, but specifying version explicitly
+
+# Optional: For data visualization
+# matplotlib>=3.5.0  # For plotting metrics
+# pandas>=1.3.5    # For data analysis 

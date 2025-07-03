@@ -1,0 +1,24 @@
+This is a sample file for AWS S3 upload demonstration.
+
+It contains some basic text content that will be uploaded to an S3 bucket.
+
+===== AWS S3 Facts =====
+- S3 stands for Simple Storage Service
+- S3 provides 99.999999999% durability (11 nines)
+- Files in S3 are called "objects"
+- Objects are stored in "buckets"
+- S3 offers different storage classes for different use cases:
+  * S3 Standard
+  * S3 Intelligent-Tiering
+  * S3 Standard-IA (Infrequent Access)
+  * S3 One Zone-IA
+  * S3 Glacier
+  * S3 Glacier Deep Archive
+
+You can automate S3 operations using boto3, the AWS SDK for Python.
+This file was uploaded as part of LAB02 in the Python DevOps learning path.
+
+Time of creation: 2023-06-07
+Purpose: Learning S3 automation with boto3
+
+===== End of Sample File ===== 
